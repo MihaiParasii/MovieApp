@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Movie>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <form asp-controller="Home" asp-action="AddActor">
+        <input type="text" name="name" placeholder="Input name">
+        <input type="text" name="surname" placeholder="Input name">
+        <button type="submit">
+            Add
+        </button>
+    </form>
+
+    <div class="text">
+        <div class="container">
+            <h1>Recently Added</h1>
+            <br>
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+
+                <div class="carousel-inner">
+                    @{ bool first = true; }
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <div class="@{if (first) { <text>carousel-item active</text> first = false; }else { <text>carousel-item</text> }}">
+                            <div class="align-content-center">
+                                <form asp-area="" asp-controller="Movies" asp-action="DetailedView" method="get">
+                                    <input hidden="hidden" name="id" type="number" value="@Model[i].Id">
+                                    <button class="btn" type="submit">
+                                        <img style="width: 50%" src="~/uploads/@(Model[i].Title).jpg" alt="">
+                                    </button>
+                                </form>
+                                <br>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Предыдущий</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Следующий</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

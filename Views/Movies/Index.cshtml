@@ -1,0 +1,91 @@
+@using ChineseNetflix.Models.Enums
+@model List<Movie>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+    ViewData["Title"] = "All Movies";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Search Movie</h2>
+</div>
+
+<div class="text-left">
+    @*<form asp-area="" asp-controller="Movies" asp-action="Index" method="get">
+        <div class="form-check">
+            <h3>Genres</h3>
+            <input class="form-check-input" type="checkbox" value="" id="actionCheckbox">
+            <label class="form-check-label" for="actionCheckbox">
+                Action
+            </label>
+            <br>
+            <input class="form-check-input" type="checkbox" value="" id="dramaCheckbox">
+            <label class="form-check-label" for="dramaCheckbox">
+                Drama
+            </label>
+            <br>
+            <input class="form-check-input" type="checkbox" value="" id="comedyCheckbox">
+            <label class="form-check-label" for="comedyCheckbox">
+                Comedy
+            </label>
+        </div>
+        <div class="form-check">
+            <h3>Sort By:</h3>
+            <label class="form-check-label" for="releaseDateRadio">
+                <input class="form-check-input" type="radio" name="sortType" id="releaseDateRadio" value="releaseDate" checked="checked">
+                Released Date
+            </label>
+            <br>
+            <label class="form-check-label" for="titleRadio">
+                <input class="form-check-input" type="radio" name="sortType" id="titleRadio" value="title">
+                Title
+            </label>
+            <br>
+            <label class="form-check-label" for="rateRadio">
+                <input class="form-check-input" type="radio" name="sortType" id="rateRadio" value="rate">
+                Rate
+            </label>
+        </div>
+        <button class="btn-outline-primary" type="submit">
+            Submit
+        </button>
+    </form>*@
+
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-2 g-3">
+            @foreach (Movie movie in Model)
+            {
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@movie.Title</h5>
+
+                            <p class="d-inline-block">
+                                Actors:
+                                @foreach (Actor actor in movie.ActorsList)
+                                {
+                                    @(actor + " ")
+                                }
+                            </p>
+                            <br>
+                            <p class="d-inline-block">
+                                Genres:
+                                @foreach (EMovieGenre genre in movie.Genres)
+                                {
+                                    @(genre + " ")
+                                }
+                            </p>
+                            <br>
+                            <form asp-area="" asp-controller="Movies" asp-action="DetailedView" method="get">
+                                <input type="number" name="id" hidden="hidden" value="@movie.Id">
+                                <button class="btn btn-primary" type="submit">Get Details</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

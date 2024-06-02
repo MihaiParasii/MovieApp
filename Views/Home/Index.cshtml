@@ -1,27 +1,32 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
-@model List<Movie>
+@model Microsoft.EntityFrameworkCore.DbSet<Movie>
+
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
+    <a asp-controller="Movies" asp-action="AddMoviePage">Add Movie</a>
     <h1 class="display-4">Welcome</h1>
+
+
 
     <form asp-controller="Home" asp-action="AddActor">
         <input type="text" name="name" placeholder="Input name">
-        <input type="text" name="surname" placeholder="Input name">
+        <input type="text" name="surname" placeholder="Input surname">
         <button type="submit">
             Add
         </button>
     </form>
 
-    <div class="text">
+
+    @*<div class="text">
         <div class="container">
             <h1>Recently Added</h1>
             <br>
             <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
-
+    
                 <div class="carousel-inner">
                     @{ bool first = true; }
                     @for (int i = 0; i < 3; i++)
@@ -49,5 +54,5 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>

@@ -34,6 +34,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movies/AddMoviePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL0FkZE1vdmllUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movies/DetailedView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL0RldGFpbGVkVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movies/MovieNotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL01vdmllTm90Rm91bmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movies/Page1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL1BhZ2UxLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Shared/Error.cshtml]

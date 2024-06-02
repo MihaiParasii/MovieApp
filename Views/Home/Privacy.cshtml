@@ -1,6 +1,19 @@
-﻿@{
+﻿@model Microsoft.EntityFrameworkCore.DbSet<Movie>
+
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">@item.Title</h5>
+            <p class="card-text">@item.Rate</p>
+            <p class="card-text">@item.Date</p>
+        </div>
+    </div>
+}

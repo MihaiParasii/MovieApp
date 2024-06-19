@@ -1,4 +1,3 @@
-@using ChineseNetflix.Models.Enums
 @model List<Movie>
 
 @{
@@ -11,24 +10,20 @@
     <h2 class="display-4">Search Movie</h2>
 </div>
 
-@*<div class="text-left">
-    $1$<form asp-area="" asp-controller="Movies" asp-action="Index" method="get">
+<div class="text-left">
+    <form asp-area="" asp-controller="Movies" asp-action="Index" method="get">
         <div class="form-check">
             <h3>Genres</h3>
-            <input class="form-check-input" type="checkbox" value="" id="actionCheckbox">
-            <label class="form-check-label" for="actionCheckbox">
-                Action
-            </label>
-            <br>
-            <input class="form-check-input" type="checkbox" value="" id="dramaCheckbox">
-            <label class="form-check-label" for="dramaCheckbox">
-                Drama
-            </label>
-            <br>
-            <input class="form-check-input" type="checkbox" value="" id="comedyCheckbox">
-            <label class="form-check-label" for="comedyCheckbox">
-                Comedy
-            </label>
+            @{
+                foreach (Genre genre in (ICollection<Genre>)ViewData["Genres"]!)
+                {
+                    <input class="form-check-input" type="checkbox" name="genreType" value="@genre.Id" id="actionCheckbox">
+                    <label class="form-check-label" for="actionCheckbox">
+                        @genre.Name
+                    </label>
+                    <br>
+                }
+            }
         </div>
         <div class="form-check">
             <h3>Sort By:</h3>
@@ -50,7 +45,7 @@
         <button class="btn-outline-primary" type="submit">
             Submit
         </button>
-    </form>#1#
+    </form>
 
 
     <div class="container">
@@ -60,26 +55,10 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">@movie.Title</h5>
-
-                            <p class="d-inline-block">
-                                Actors:
-                                @foreach (Actor actor in movie.ActorsList)
-                                {
-                                    @(actor + " ")
-                                }
-                            </p>
-                            <br>
-                            <p class="d-inline-block">
-                                Genres:
-                                @foreach (EMovieGenre genre in movie.Genres)
-                                {
-                                    @(genre + " ")
-                                }
-                            </p>
+                            <h5 class="card-title">@movie.MovieDetail.Title</h5>
                             <br>
                             <form asp-area="" asp-controller="Movies" asp-action="DetailedView" method="get">
-                                <input type="number" name="id" hidden="hidden" value="@movie.Id">
+                                <input type="number" name="id" hidden="hidden" value="@movie.MovieDetail.MovieId">
                                 <button class="btn btn-primary" type="submit">Get Details</button>
                             </form>
                         </div>
@@ -88,4 +67,4 @@
             }
         </div>
     </div>
-</div>*@
+</div>

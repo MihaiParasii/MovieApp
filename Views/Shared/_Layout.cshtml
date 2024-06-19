@@ -12,12 +12,13 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ChineseNetflix</a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">ChineseNetflix</a>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Index">All Movies</a>
+                <a class="navbar-brand" asp-controller="Movies" asp-action="Index">All Movies</a>
+                <a class="navbar-brand" asp-controller="Actors" asp-action="Index">All Actors</a>
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <form class="d-flex" asp-area="" asp-controller="Movies" asp-action="Index" method="get">
+                        <form class="d-flex" asp-controller="Movies" asp-action="Index" method="get">
                             <input class="form-control me-2" type="text" placeholder="Search movie..." name="title" required="required">
                             <button class="btn btn-outline-primary" type="submit">Search</button>
                         </form>

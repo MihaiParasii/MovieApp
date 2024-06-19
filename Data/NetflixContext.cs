@@ -1,13 +1,16 @@
 using ChineseNetflix.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ChineseNetflix.Database;
+namespace ChineseNetflix.Data;
 
 public class NetflixContext : DbContext
 {
-    public DbSet<Customer> Customers { get; set; }
-    public DbSet<Movie> Movies { get; set; }
-    public DbSet<Actor> Actors { get; set; }
+    public DbSet<Customer> Customers { get; init; }
+    public DbSet<Movie> Movies { get; init; }
+    public DbSet<MovieDetail> MovieDetail { get; init; }
+    public DbSet<Actor> Actors { get; init; }
+    public DbSet<Genre> Genres { get; init; }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

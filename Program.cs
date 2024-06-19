@@ -1,11 +1,15 @@
-using ChineseNetflix.Database;
+using ChineseNetflix.Data;
 using Microsoft.EntityFrameworkCore;
+using ChineseNetflix.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<NetflixContext>();
+builder.Services.AddDbContext<IdentityContext>();
+
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<IdentityContext>();
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

@@ -1,0 +1,27 @@
+@model IEnumerable<Actor>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-2 g-3">
+        @foreach (Actor actor in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@actor.Name</h5>
+                        <h5 class="card-title">@actor.Surname</h5>
+                        <br>
+                        <form asp-controller="Actors" asp-action="DetailedView" method="get">
+                            <input type="number" name="id" hidden="hidden" value="@actor.Id">
+                            <button class="btn btn-primary" type="submit">Get Details</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

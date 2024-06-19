@@ -245,30 +245,6 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
-      "Id": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/uploads/Action2.jpg",
-      "PackagePath": "staticwebassets/uploads/Action2.jpg"
-    },
-    {
-      "Id": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/uploads/Mova5.jpg",
-      "PackagePath": "staticwebassets/uploads/Mova5.jpg"
-    },
-    {
-      "Id": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/uploads/Movie1.jpg",
-      "PackagePath": "staticwebassets/uploads/Movie1.jpg"
-    },
-    {
-      "Id": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/uploads/Movie2.jpg",
-      "PackagePath": "staticwebassets/uploads/Movie2.jpg"
-    },
-    {
-      "Id": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/uploads/Movie3.jpg",
-      "PackagePath": "staticwebassets/uploads/Movie3.jpg"
-    },
-    {
-      "Id": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/uploads/Movie4.jpg",
-      "PackagePath": "staticwebassets/uploads/Movie4.jpg"
-    },
-    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.ChineseNetflix.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

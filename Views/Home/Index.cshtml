@@ -4,11 +4,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<a asp-controller="Movies" asp-action="AddMovie">Add Movie</a>
-<br>
-<a asp-controller="Actors" asp-action="AddActor">Add Actor</a>
-<br>
-<a asp-controller="Genre" asp-action="AddGenre">Add Genre</a>
 <div class="text-center">
     <div class="text">
         <div class="container">
@@ -21,7 +16,7 @@
                     {
                         <div class="@{if (first) { <text>carousel-item active</text> first = false; }else { <text>carousel-item</text> }}">
                             <div class="align-content-center">
-                                <form asp-controller="Movies" asp-action="DetailedView" method="get">
+                                <form asp-controller="Movie" asp-action="Details" method="get">
                                     <input hidden="hidden" name="id" type="number" value="@movie.MovieDetail.MovieId">
                                     <br>
                                     <button class="btn" type="submit">

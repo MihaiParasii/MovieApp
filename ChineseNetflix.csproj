@@ -13,6 +13,7 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5">
         <PrivateAssets>all</PrivateAssets>
@@ -30,6 +31,30 @@
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewImports.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Logout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ResetPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Identity\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Contr\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Contr\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Contr\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Contr\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Contr\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\actctr\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\actctr\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\actctr\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\actctr\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\actctr\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Actors\AddActor.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Actors\DetailedView.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Actors\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Movies\AddMovie.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Movies\DetailedView.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Movies\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Areas\Identity\Pages\Account\Login.cshtml" />
     </ItemGroup>
 
 </Project>

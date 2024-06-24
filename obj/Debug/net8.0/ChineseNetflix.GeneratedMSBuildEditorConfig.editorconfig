@@ -26,6 +26,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Gb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Gb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,20 +66,44 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Actors/AddActor.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWN0b3JzL0FkZEFjdG9yLmNzaHRtbA==
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Actor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWN0b3IvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Actors/DetailedView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWN0b3JzL0RldGFpbGVkVmlldy5jc2h0bWw=
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Actor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWN0b3IvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Actors/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWN0b3JzL0luZGV4LmNzaHRtbA==
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Actor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWN0b3IvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Genre/AddGenre.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2VucmUvQWRkR2VucmUuY3NodG1s
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Actor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWN0b3IvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Actor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWN0b3IvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Genre/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2VucmUvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Genre/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2VucmUvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Genre/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2VucmUvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Genre/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2VucmUvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Genre/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2VucmUvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Home/Index.cshtml]
@@ -82,16 +114,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movies/AddMovie.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL0FkZE1vdmllLmNzaHRtbA==
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Home/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movies/DetailedView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL0RldGFpbGVkVmlldy5jc2h0bWw=
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movie/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movies/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWVzL0luZGV4LmNzaHRtbA==
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movie/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movie/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movie/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Movie/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/Views/Shared/Error.cshtml]

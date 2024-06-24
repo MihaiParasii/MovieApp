@@ -1,0 +1,53 @@
+@model IEnumerable<Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    @* <button class="btn btn-success"> *@
+    @*     <a asp-action="Create">Create New</a> *@
+    @* </button> *@
+    <a asp-action="Create">
+        <button class="btn btn-success">
+            Create New
+        </button>
+    </a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieDetail.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieDetail.Date)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (Movie movie in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => movie.MovieDetail.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => movie.MovieDetail.Date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@movie.Id">
+                    <button class="btn btn-outline-info">Edit</button>
+                </a> |
+                <a asp-action="Details" asp-route-id="@movie.Id">
+                    <button class="btn btn-outline-dark">Details</button>
+                </a> |
+                <a asp-action="Delete" asp-route-id="@movie.Id">
+                    <button class="btn btn-outline-danger">Delete</button>
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

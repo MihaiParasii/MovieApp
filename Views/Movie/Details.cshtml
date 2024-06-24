@@ -1,0 +1,62 @@
+@model ChineseNetflix.Models.Movie
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<h3>Movie Details</h3>
+
+<div>
+    <hr>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MovieDetail.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MovieDetail.Title)
+        </dd>
+        <dt class="col-sm-2">
+            <hr>
+            @Html.DisplayNameFor(model => model.MovieDetail.Date)
+        </dt>
+        <dd class="col-sm-10">
+            <hr>
+            @Html.DisplayFor(model => model.MovieDetail.Date)
+        </dd>
+        <dt class="col-sm-2">
+            <hr>
+            @Html.DisplayNameFor(model => model.Actors)
+        </dt>
+        <dd class="col-sm-10">
+            <hr>
+            @foreach (Actor actor in Model.Actors)
+            {
+                <a asp-controller="Actor" asp-action="Details" asp-route-id="@actor.Id">
+                    @Html.DisplayFor(modelItem => actor.Name)
+                    @Html.DisplayFor(modelItem => actor.Surname)
+                </a>
+                <br>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            <hr>
+            @Html.DisplayNameFor(model => model.Genres)
+        </dt>
+        <dd class="col-sm-10">
+            <hr>
+            @{
+                foreach (Genre genre in Model.Genres)
+                {
+                    <a asp-controller="Genre" asp-action="Details" asp-route-id="@genre.Id">
+                        @Html.DisplayFor(modelItem => genre.Name)
+                    </a>
+                    <br>
+                }
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

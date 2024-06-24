@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChineseNetflix.Migrations
 {
-    [DbContext(typeof(NetflixContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20240614095409_InitialMigration")]
     partial class InitialMigration
     {

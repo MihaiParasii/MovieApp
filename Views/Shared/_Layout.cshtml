@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/ChineseNetflix.styles.css" asp-append-version="true"/>
 </head>
@@ -12,24 +14,20 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ChineseNetflix</a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">ChineseNetflix</a>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Index">All Movies</a>
+                <a class="navbar-brand" asp-controller="Movie" asp-action="Index">All Movies</a>
+                <a class="navbar-brand" asp-controller="Actor" asp-action="Index">All Actors</a>
+                <a class="navbar-brand" asp-controller="Genre" asp-action="Index">All Genres</a>
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <form class="d-flex" asp-area="" asp-controller="Movies" asp-action="Index" method="get">
-                            <input class="form-control me-2" type="text" placeholder="Search movie..." name="title" required="required">
+                        <form class="d-flex" asp-controller="Home" asp-action="Search" method="get">
+                            <input class="form-control me-2" type="text" placeholder="Search..." name="query" required="required">
                             <button class="btn btn-outline-primary" type="submit">Search</button>
                         </form>
                     </li>
                 </ul>
-
-                <a href="http://localhost:5045/Identity/Account/Login">
-                    <button class="btn btn-outline-dark" type="submit">Log In</button>
-                </a>
-                <a href="http://localhost:5045/Identity/Account/Register">
-                    <button class="btn btn-outline-dark" type="submit">Register</button>
-                </a>
+                <partial name="_LoginPartial"/>
             </div>
         </div>
     </nav>

@@ -1,0 +1,105 @@
+@using Microsoft.AspNetCore.Identity
+@model MovieDetail
+@inject SignInManager<AppUser> SingInManager
+@inject UserManager<AppUser> UserManager
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-lg-12">
+        <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+            <div class="card-body p-4">
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <form asp-controller="Comment" asp-action="Create">
+                        <input type="text" name="comment" class="form-control" placeholder="Type comment..." required/>
+                        <input type="hidden" name="movieId" value="@Model.MovieId"/>
+                        <input type="hidden" name="dateTime" value="@DateTime.Now"/>
+                        @if (SingInManager.IsSignedIn(User))
+                        {
+                            <input type="hidden" name="userId" value="@UserManager.GetUserId(User)"/>
+                            <button class="btn btn-outline-success" type="submit">Share Comment</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-outline-success" type="submit">Share Comment</button>
+                            <label class="text-danger">You must be logged in to write a comment</label>
+                        }
+                    </form>
+                </div>
+                @{
+                    var comments = Model.Comments.Where(c => c.MovieDetail.MovieId == Model.MovieId).ToList();
+
+                    if (comments.Count == 0)
+                    {
+                        <p class="text-black-50">No comments yet.</p>
+                        <br>
+                    }
+                    else
+                    {
+                        foreach (MovieComment comment in comments.OrderByDescending(c => c.DateTime))
+                        {
+                            <div class="card mb-4">
+                                <div class="card-subtitle">
+                                    <br>
+                                    <div class="d-flex flex-row align-items-center">
+                                        <p class="text-black-50 small mb-0 ms-2">@comment.User.Nickname</p>
+                                        <p class="small mb-0 ms-2">@comment.DateTime</p>
+                                        @if (SingInManager.IsSignedIn(User) && UserManager.GetUserId(User)!.Equals(comment.User.Id))
+                                        {
+                                            <form asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id">
+                                                <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                                            </form>
+                                            <form asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id">
+                                                <button class="btn btn-sm btn-outline-warning" type="submit">Edit</button>
+                                            </form>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p>@comment.Comment</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex flex-row align-items-center">
+                                        @if (SingInManager.IsSignedIn(User))
+                                        {
+                                            @if (comment.Likes!.FirstOrDefault(l => l.User.Id.Equals(UserManager.GetUserId(User))) == null)
+                                            {
+                                                <form asp-controller="Comment" asp-action="Like">
+                                                    <input type="hidden" name="commentId" value="@comment.Id">
+                                                    <input type="hidden" name="userId" value="@UserManager.GetUserId(User)">
+                                                    <button class="bi bi-heart border-0"></button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                                <form asp-controller="Comment" asp-action="UnLike">
+                                                    <input type="hidden" name="commentId" value="@comment.Id">
+                                                    <input type="hidden" name="userId" value="@UserManager.GetUserId(User)">
+                                                    <button class="bi bi-heart-fill border-0"></button>
+                                                </form>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <button class="bi bi-heart border-0" name="btn"></button>
+                                        }
+                                        <p>@comment.CountLikes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const buttons = document.getElementsByName("btn");
+    buttons.forEach((btn) => btn.onclick = function errorMessage() {
+        btn.textContent = "Please sing in"
+        btn.style.color = "red"
+        }
+    )
+</script>

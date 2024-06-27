@@ -1,0 +1,103 @@
+@model string
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "_Layout";
+}
+
+<h2>Search</h2>
+<br>
+
+@{
+    List<Movie> movies = ViewBag.movies;
+    List<Actor> actors = ViewBag.actors;
+    List<Genre> genres = ViewBag.genres;
+}
+
+<table class="table">
+    <h5>Movies</h5>
+    <tbody>
+    @{
+        if (movies.Count == 0)
+        {
+            <tr>
+                <td>
+                    No movies found
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (Movie movie in movies)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">
+                            @movie.MovieDetail.Title
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    }
+
+    </tbody>
+</table>
+
+<table class="table">
+    <h5>Actors</h5>
+    <tbody>
+    @{
+        if (actors.Count == 0)
+        {
+            <tr>
+                <td>
+                    No actors found
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (Actor actor in actors)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Actor" asp-action="Details" asp-route-id="@actor.Id">
+                            @(actor.Name + " " + actor.Surname)
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    }
+    </tbody>
+</table>
+
+<table class="table">
+    <h5>Genres</h5>
+    <tbody>
+    @{
+        if (genres.Count == 0)
+        {
+            <tr>
+                <td>
+                    No genres found
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (Genre genre in genres)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Genre" asp-action="Details" asp-route-id="@genre.Id">
+                            @genre.Name
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    }
+    </tbody>
+</table>

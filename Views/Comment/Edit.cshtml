@@ -1,0 +1,21 @@
+@using Microsoft.AspNetCore.Identity
+@model ChineseNetflix.Models.MovieComment
+@inject UserManager<AppUser> UserManager
+
+@{
+    ViewBag.Title = "Edit Comment";
+    Layout = "_Layout";
+}
+
+<h2>Edit</h2>
+
+<div data-mdb-input-init class="form-outline mb-4">
+    <form asp-controller="Comment" asp-action="Save">
+        <input type="text" asp-for="Comment" class="form-control" value="@ViewBag.commentValue" placeholder="Type comment..." required/>
+        <input type="hidden" asp-for="Id"/>
+        <input type="hidden" asp-for="MovieDetail"/>
+        <input type="hidden" asp-for="User"/>
+        <input type="hidden" asp-for="DateTime" value="@DateTime.Now"/>
+        <button class="btn btn-outline-success" type="submit">Save Comment</button>
+    </form>
+</div>

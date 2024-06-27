@@ -1,0 +1,53 @@
+@model ChineseNetflix.Models.Actor
+
+@{
+    ViewData["Title"] = "Actor Details";
+}
+
+<h3>Actor Details</h3>
+
+<div>
+    <hr/>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            <hr>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+        <dd class="col-sm-10">
+            <hr>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class="col-sm-2">
+            <hr>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+        <dd class="col-sm-10">
+            <hr>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt class="col-sm-2">
+            <hr>
+            @Html.DisplayNameFor(model => model.Movies)
+        </dt>
+        <dd class="col-sm-10">
+            <hr>
+            @foreach (Movie movie in Model.Movies!)
+            {
+                <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">
+                    @Html.DisplayFor(modelItem => movie.MovieDetail.Title)
+                </a>
+                <br>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

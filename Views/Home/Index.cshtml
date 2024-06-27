@@ -1,37 +1,27 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
-@model List<Movie>
+@model IEnumerable<Movie>
 
 @{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-
-    <form asp-controller="Home" asp-action="AddActor">
-        <input type="text" name="name" placeholder="Input name">
-        <input type="text" name="surname" placeholder="Input name">
-        <button type="submit">
-            Add
-        </button>
-    </form>
-
     <div class="text">
         <div class="container">
             <h1>Recently Added</h1>
             <br>
             <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
-
                 <div class="carousel-inner">
                     @{ bool first = true; }
-                    @for (int i = 0; i < 3; i++)
+                    @foreach (Movie movie in Model)
                     {
                         <div class="@{if (first) { <text>carousel-item active</text> first = false; }else { <text>carousel-item</text> }}">
                             <div class="align-content-center">
-                                <form asp-area="" asp-controller="Movies" asp-action="DetailedView" method="get">
-                                    <input hidden="hidden" name="id" type="number" value="@Model[i].Id">
+                                <form asp-controller="Movie" asp-action="Details" method="get">
+                                    <input hidden="hidden" name="id" type="number" value="@movie.MovieDetail.MovieId">
+                                    <br>
                                     <button class="btn" type="submit">
-                                        <img style="width: 50%" src="~/uploads/@(Model[i].Title).jpg" alt="">
+                                        <h5>@movie.MovieDetail.Title</h5>
+                                        @* <img style="width: 50%" src="~/uploads/@(movie.MovieDetail.Title).jpg" alt=""> *@
                                     </button>
                                 </form>
                                 <br>

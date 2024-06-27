@@ -51,6 +51,8 @@
       <_ContentIncludedByDefault Remove="Views\Movies\AddMovie.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Movies\DetailedView.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Movies\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\svg\star-fill.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\svg\star.svg" />
     </ItemGroup>
 
     <ItemGroup>

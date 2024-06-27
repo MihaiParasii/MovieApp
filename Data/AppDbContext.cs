@@ -7,13 +7,15 @@ namespace ChineseNetflix.Data;
 
 public class AppDbContext : IdentityDbContext<AppUser>
 {
-    public DbSet<Customer> Customers { get; init; }
     public DbSet<Movie> Movies { get; init; }
     public DbSet<MovieDetail> MovieDetail { get; init; }
     public DbSet<Actor> Actors { get; init; }
     public DbSet<Genre> Genres { get; init; }
     public DbSet<AppUser> AppUsers { get; init; }
-
+    public DbSet<Rate> Rates { get; init; }
+    public DbSet<MovieComment> Comments { get; init; }
+    public DbSet<CommentLike> CommentLikes { get; init; }
+    
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

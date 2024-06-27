@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CiW/3dzB2ULg1t0ywTUKZUCPcFrrpV7KC4AHT6/ziDw=",
+  "Hash": "jjoF1TndVSsT+6Bud7vknV9guTWSNBHN14QEJvJRzwU=",
   "Source": "ChineseNetflix",
   "BasePath": "_content/ChineseNetflix",
   "Mode": "Default",
@@ -2333,6 +2333,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/svg/star-fill.svg",
+      "SourceId": "ChineseNetflix",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/",
+      "BasePath": "_content/ChineseNetflix",
+      "RelativePath": "svg/star-fill.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/svg/star-fill.svg"
+    },
+    {
+      "Identity": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/svg/star.svg",
+      "SourceId": "ChineseNetflix",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/admin/RiderProjects/ChineseNetflix/ChineseNetflix/wwwroot/",
+      "BasePath": "_content/ChineseNetflix",
+      "RelativePath": "svg/star.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/svg/star.svg"
     }
   ]
 }

@@ -71,19 +71,19 @@ namespace ChineseNetflix.Areas.Identity.Pages.Account
         {
             [Required]
             [StringLength(40, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
-                MinimumLength = 6)]
+                MinimumLength = 5)]
             [Display(Name = "Name")]
             public string Name { get; set; }
 
             [Required]
             [StringLength(40, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
-                MinimumLength = 6)]
+                MinimumLength = 5)]
             [Display(Name = "Surname")]
             public string Surname { get; set; }
 
             [Required]
             [StringLength(40, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
-                MinimumLength = 6)]
+                MinimumLength = 5)]
             [Display(Name = "Nickname")]
             public string Nickname { get; set; }
 

@@ -137,7 +137,7 @@ namespace ChineseNetflix.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("ChineseNetflix.Models.Customer", b =>
+            modelBuilder.Entity("ChineseNetflix.Models.CommentLike", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -145,9 +145,20 @@ namespace ChineseNetflix.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Customers");
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CommentLikes");
                 });
 
             modelBuilder.Entity("ChineseNetflix.Models.Genre", b =>
@@ -181,6 +192,41 @@ namespace ChineseNetflix.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("ChineseNetflix.Models.MovieComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<int>("CountLikes")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("MovieDetailMovieId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieDetailMovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("ChineseNetflix.Models.MovieDetail", b =>
                 {
                     b.Property<int>("MovieId")
@@ -188,6 +234,9 @@ namespace ChineseNetflix.Migrations
 
                     b.Property<DateOnly>("Date")
                         .HasColumnType("date");
+
+                    b.Property<float?>("Rate")
+                        .HasColumnType("float");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -197,6 +246,33 @@ namespace ChineseNetflix.Migrations
                     b.HasKey("MovieId");
 
                     b.ToTable("MovieDetail");
+                });
+
+            modelBuilder.Entity("ChineseNetflix.Models.Rate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("MovieDetailMovieId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieDetailMovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Rates");
                 });
 
             modelBuilder.Entity("GenreMovie", b =>
@@ -361,6 +437,44 @@ namespace ChineseNetflix.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ChineseNetflix.Models.CommentLike", b =>
+                {
+                    b.HasOne("ChineseNetflix.Models.MovieComment", "Comment")
+                        .WithMany()
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ChineseNetflix.Models.AppUser", "User")
+                        .WithMany("Likes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Comment");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ChineseNetflix.Models.MovieComment", b =>
+                {
+                    b.HasOne("ChineseNetflix.Models.MovieDetail", "MovieDetail")
+                        .WithMany("Comments")
+                        .HasForeignKey("MovieDetailMovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ChineseNetflix.Models.AppUser", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MovieDetail");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ChineseNetflix.Models.MovieDetail", b =>
                 {
                     b.HasOne("ChineseNetflix.Models.Movie", "Movie")
@@ -370,6 +484,25 @@ namespace ChineseNetflix.Migrations
                         .IsRequired();
 
                     b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("ChineseNetflix.Models.Rate", b =>
+                {
+                    b.HasOne("ChineseNetflix.Models.MovieDetail", "MovieDetail")
+                        .WithMany("Rates")
+                        .HasForeignKey("MovieDetailMovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ChineseNetflix.Models.AppUser", "User")
+                        .WithMany("Rates")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MovieDetail");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("GenreMovie", b =>
@@ -438,10 +571,26 @@ namespace ChineseNetflix.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ChineseNetflix.Models.AppUser", b =>
+                {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Likes");
+
+                    b.Navigation("Rates");
+                });
+
             modelBuilder.Entity("ChineseNetflix.Models.Movie", b =>
                 {
                     b.Navigation("MovieDetail")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ChineseNetflix.Models.MovieDetail", b =>
+                {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Rates");
                 });
 #pragma warning restore 612, 618
         }

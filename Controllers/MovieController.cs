@@ -23,6 +23,12 @@ public class MovieController(AppDbContext context) : Controller
 
         var movie = await context.Movies
             .Include(m => m.MovieDetail)
+                .ThenInclude(md => md.Comments)
+                    .ThenInclude(c => c.Likes)!
+                        .ThenInclude(l => l.User)
+            .Include(m => m.MovieDetail)
+                .ThenInclude(md => md.Comments)
+                    .ThenInclude(c => c.User)
             .Include(m => m.Actors)
             .Include(m => m.Genres)
             .FirstOrDefaultAsync(m => m.Id == id);
@@ -69,7 +75,6 @@ public class MovieController(AppDbContext context) : Controller
         context.Movies.Add(newMovie);
         await context.SaveChangesAsync();
 
-        ViewData["MovieId"] = new SelectList(context.Movies, "Id", "Id", movieDetail.MovieId);
         return RedirectToAction(nameof(Index));
     }
 
@@ -155,5 +160,52 @@ public class MovieController(AppDbContext context) : Controller
     private bool MovieDetailExists(int id)
     {
         return context.MovieDetail.Any(e => e.MovieId == id);
+    }
+
+    public async Task<IActionResult> RateMovie([Bind("MovieId,Title,Date")] MovieDetail movieDetail,
+        string userId, int rateValue)
+    {
+        var movie = await context.Movies
+            .Include(m => m.MovieDetail)
+            .ThenInclude(md => md.Rates)
+            .FirstOrDefaultAsync(m => m.Id == movieDetail.MovieId);
+
+        var user = await context.AppUsers
+            .Include(a => a.Rates)
+            .FirstOrDefaultAsync(a => a.Id == userId);
+
+        if (movie == null)
+        {
+            return NotFound();
+        }
+
+        Rate? rate = await context.Rates.SingleOrDefaultAsync(r =>
+            r.MovieDetail.MovieId == movieDetail.MovieId && r.User.Id == userId);
+
+        if (rate == null)
+        {
+            context.Rates.Add(CreateRate(movie.MovieDetail, user!, rateValue));
+            context.Update(movie);
+        }
+        else
+        {
+            rate.Value = rateValue;
+            context.Update(rate);
+        }
+
+        movie.MovieDetail.UpdateRate();
+
+        await context.SaveChangesAsync();
+        return RedirectToAction(nameof(Details), new { id = movieDetail.MovieId });
+    }
+
+    private static Rate CreateRate(MovieDetail movieDetail, AppUser user, int rate)
+    {
+        return new Rate
+        {
+            MovieDetail = movieDetail,
+            User = user,
+            Value = rate
+        };
     }
 }
